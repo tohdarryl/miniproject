@@ -1,0 +1,19 @@
+<br>
+<div class="parent">
+<h2>{{this.name}}</h2>
+
+<google-map 
+            height="500px"
+            width="900px"
+            [center]="center"
+            [zoom]="zoom"
+            (mapClick)="moveMap($event)"
+            (mapMousemove)="move($event)">
+</google-map>
+  
+<!-- <div>Latitude: {{display?.lat}}</div>
+<div>Longitude: {{display?.lng}}</div> -->
+<br>
+<button mat-raised-button color="warm" type="button" (click)="back()">
+    <b>Back</b></button>
+</div>

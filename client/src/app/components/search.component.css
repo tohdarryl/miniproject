@@ -1,0 +1,71 @@
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  body, html {
+    height: 100%;
+  }
+  
+  .bg {
+    /* The image used */
+    background-image: url("/assets/images/FoodCollage.jpg");
+  
+    /* Full height */
+    height: 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+  }
+
+  .container{
+    width: 100%;
+    min-height: 100vh;
+    padding: 5%;
+    background-image: url("/assets/images/FoodCollage.jpg");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
+
+  .search-bar{
+    width: 100%;
+    max-width: 450px;
+    background: whitesmoke;
+    display: flex;
+    align-items: center;
+    border-radius: 60px;
+    padding: 0px 6px;
+  }
+
+  .search-bar input{
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 18px 18px;
+    font-size: 20px;
+    color: black
+
+  }
+
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .search-bar button{
+    border:0;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+  }

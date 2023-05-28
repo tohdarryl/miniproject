@@ -1,0 +1,15 @@
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .center {
+    margin-left: 300px;
+    margin-right: 300px;
+  }
+  
+  .rightButton {
+    float: right;
+   }

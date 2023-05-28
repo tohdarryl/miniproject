@@ -1,0 +1,59 @@
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .center {
+    margin-left: 250px;
+    margin-right: 250px;
+  }
+
+  .rightButton {
+   float: right;
+  }
+
+  .leftButton {
+    float: left;
+   }
+
+  span{
+    color: black;
+  }
+
+  .border{
+    border-style: solid;
+  }
+
+  .matListItemLine{
+    /* margin: 1rem 0; */
+    /* overflow: visible; */
+    /* line-height: initial; */
+    word-wrap: break-word;
+    white-space: pre-wrap;
+  }
+
+  .fullscreen-dialog {
+    max-width: 100%;
+  }
+
+.list-item-content {
+  border-style: solid;
+  border-color: lightgray;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  border-width: thin;
+  padding: 10px; /* Add padding as needed */
+}
+
+.list-item {
+    display: block;
+    margin-bottom: 18px;
+  }
+
+  .mat-list-item {
+    border-bottom: 1px solid lightgray;
+    margin-bottom: 10px;
+    /* margin-top: 5px; */
+  }

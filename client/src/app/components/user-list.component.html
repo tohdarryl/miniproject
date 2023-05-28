@@ -1,0 +1,15 @@
+<br>
+<div class="center" *ngIf="users.length > 0; else noData">
+<h2><b>Users found</b></h2>
+
+<mat-nav-list>
+    <a mat-list-item *ngFor="let u of users" [routerLink]="['/collection', u.accountId]">
+    <b>#{{u.accountId}}</b> : {{u.firstName}} {{u.lastName}}
+    </a>
+</mat-nav-list>
+
+</div>
+
+<ng-template #noData class="center">
+    <h2>No users found ...</h2>
+</ng-template>

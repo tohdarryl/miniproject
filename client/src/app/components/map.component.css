@@ -1,0 +1,14 @@
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .leftButton {
+    float: left;
+   }
+
+   .rightButton {
+    float: right;
+   }

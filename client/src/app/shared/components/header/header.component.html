@@ -1,0 +1,48 @@
+<head>
+</head>
+<ng-progress id="progressBar" [color]="progressBar.currentColor"></ng-progress>
+<ff-alerts></ff-alerts>
+<span>
+  <mat-toolbar color="warm" class="fixed-header">
+    <!-- <mat-icon>dining</mat-icon> -->
+    <button mat-icon-button (click)="back()" matTooltip="Search Page">
+      <mat-icon>dining</mat-icon>
+    </button>
+    &nbsp;
+    <span>Beento</span>
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    <div>
+      <form [formGroup]="form" (ngSubmit)="getUsers()">
+         <input style="border-radius: 60px;padding: 0px 10px;border-style: solid;"  type="text" placeholder="Search User" formControlName="name">
+         <button mat-button type="submit" [disabled]="form.invalid"><mat-icon>person_search</mat-icon></button>
+      </form>
+    </div>
+
+    <span class="example-spacer"></span>
+    <button mat-icon-button matTooltip="Your Saved Places" (click)="getCollection()" *ngIf="!accSvc.isTokenExpired()">
+      <mat-icon>book</mat-icon>
+    </button>
+    <button mat-button (click)="register()" *ngIf="accSvc.isTokenExpired()">Register</button>
+    <button mat-button (click)="login()" *ngIf="accSvc.isTokenExpired()">Login</button>
+    <!-- <button [matMenuTriggerFor]="profile" mat-icon-button class="example-icon account_circle-icon" -->
+    <button mat-button [matMenuTriggerFor]="profile" *ngIf="!accSvc.isTokenExpired()">
+      <!-- <mat-icon>account_circle</mat-icon> -->
+      Welcome, {{accSvc.decodedToken?.firstName}} {{accSvc.decodedToken?.lastName}}
+    </button>
+    <mat-menu #profile="matMenu" class="profile">
+      <span mat-menu-item matTooltip="Your Account ID"
+        [matTooltipPosition]="'left'"><mat-icon>numbers</mat-icon> {{accSvc.decodedToken?.accountId}}</span>
+      <button mat-menu-item (click)="changePassword()">
+        <mat-icon>key</mat-icon>
+        Change Password
+      </button>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        Logout
+      </button>
+    </mat-menu>
+
+  </mat-toolbar>
+</span>

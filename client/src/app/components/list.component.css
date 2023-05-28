@@ -1,0 +1,19 @@
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .center {
+    margin-left: 290px;
+    margin-right: 290px;
+  }
+
+  .rightButton {
+   float: right;
+  }
+
+  span{
+    color: black;
+  }

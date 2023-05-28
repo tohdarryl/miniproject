@@ -1,0 +1,57 @@
+<br>
+
+<div *ngIf="places; else noData">
+    <h2 class="center"><b style="color: black;">
+        &nbsp;&nbsp;&nbsp;
+        #{{this.accountId}}'s Beento</b>
+        <br>
+        <button mat-flat-button style="font-size: small;" (click)="applyFilter('')">All</button>
+        <button mat-flat-button style="font-size: small;" (click)="applyFilter('https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png')">Restaurant</button>
+        <button mat-flat-button style="font-size: small;" (click)="applyFilter('https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/cafe-71.png')">Cafe</button>
+        <button mat-flat-button style="font-size: small;" (click)="applyFilter('https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bar-71.png')">Bar</button>
+        <button mat-flat-button style="font-size: small;" (click)="applyFilter('https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png')">Others</button>
+    </h2>
+    <mat-list #list class="center">
+        <ng-container *ngFor="let p of places">
+        <mat-list-item  *ngIf="!selectedFilter || selectedFilter === p.icon" class="mat-list-item">
+        <!-- <mat-list-item  *ngIf="!selectedFilter || selectedFilter === p.icon" style="border-style: solid; border-color: lightgray;border-radius: 10px;margin-bottom: 18px; border-width: thin;"> -->
+            <img matListItemAvatar src="{{p.photo}}" alt="..." style="width:150px;height:150px;">
+            <h3 matListItemTitle style="display: inline;"><a href="{{p.website}}" target="_blank" style="color: navy">{{p.name}}</a>
+                <button *ngIf="this.accountId == this.accSvc.decodedToken.accountId" class="rightButton" mat-button color="warn" type="button" (click)="delete(p.placeId)" matTooltip="Delete">X</button>
+                <button *ngIf="this.accountId == this.accSvc.decodedToken.accountId" class="rightButton" mat-button color="warm" type="button" (click)="addReview(p.placeId)" matTooltip="Add Comment"><mat-icon>add_comment</mat-icon></button>
+                <button class="rightButton" mat-button color="warm" type="button" (click)="goToMap(p.name, p.latitude, p.longtitude)" matTooltip="Show on Map"><mat-icon>pin_drop</mat-icon></button>
+            </h3>
+            <span matListItemLine><b>Address:</b> {{p.address}}</span>
+            <br>
+            <span matListItemLine><b>Rating:</b> {{p.rating}} out of 5  ({{p.totalUsersRated}} Google reviews)</span>
+            <br>
+            <span matListItemLine><b><u>Comments</u></b></span>
+
+            <!-- <span matListItemLine><button mat-button (click)="openTempDialog()"><b>Comments</b></button></span>
+            
+            <ng-template #dialogRef>
+                <h5>Comments</h5>
+                <ul>
+                    <li *ngFor="let r of p.review"><b>{{r.posted}}</b> : {{r.comment}}</li>
+                </ul>
+                <button mat-button mat-dialog-close="">Close</button>
+            </ng-template> -->
+            
+            <span matListItemLine class="matListItemLine" *ngFor="let r of p.review" style="color: dimgrey"><b>{{r.posted}}</b> : {{r.comment}}</span>
+            <!-- <span matListItemLine><button class="rightButton" mat-stroked-button color="warm" type="button" (click)="goToMap(p.name, p.latitude, p.longtitude)">
+            Show on Map <mat-icon>pin_drop</mat-icon></button></span> -->
+        </mat-list-item>
+        <!-- <hr> -->
+        <!-- <hr *ngIf="!selectedFilter || selectedFilter === p.icon"> -->
+    </ng-container>
+    </mat-list>
+
+</div>
+
+
+
+
+<ng-template #noData class="center">
+    <h2>No Saved Places ...</h2>
+</ng-template>
+

@@ -1,0 +1,41 @@
+<!-- <h1>Search for Places</h1>
+<form [formGroup]="form" (ngSubmit)="search()">
+    <table>
+        
+        <tr>
+            <td>Restaurant name:</td>
+            <td>
+                <input type="text" size="30" formControlName="name">
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button type="submit" [disabled]="form.invalid">Search</button>
+            </td>
+        </tr>
+        
+    </table>
+</form> -->
+
+  
+<div class="container">
+    <form class="search-bar" [formGroup]="form" (ngSubmit)="search()">
+        <input type="text" placeholder="Search Place" formControlName="name" required/>
+        <!-- <mat-form-field appearance="fill">
+            <mat-label>Search Place</mat-label>
+            <input matInput size="50" placeholder="wildseed" formControlName="name" required/>
+        </mat-form-field> -->
+        &nbsp;
+        <button  mat-mini-fab color="primary" type="submit" [disabled]="form.invalid">
+            <mat-icon>search</mat-icon>
+        </button>
+        &nbsp;
+        <!-- <button  mat-mini-fab color="primary" type="button" (click)="clear()">
+            <mat-icon>undo</mat-icon>
+        </button> -->
+    </form>
+    </div>
+
+    <!-- <img src="/assets/images/FoodCollage.jpg" alt="" class="bg"> -->
+    

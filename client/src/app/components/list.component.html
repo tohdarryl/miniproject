@@ -1,0 +1,91 @@
+<br>
+<div *ngIf="places; else noData">
+
+    <mat-selection-list #list class="center" (selectionChange)="onGroupsChange(list.selectedOptions.selected)">
+        <mat-list-option *ngFor="let p of places" [value]="p" style="margin-bottom: 18px;">
+            <img matListItemAvatar src="{{p.photo}}" alt="..." style="width:150px;height:150px;">
+            <h3 matListItemTitle style="display: inline;"> <a href="{{p.website}}" target="_blank" style="color: navy;">{{p.name}}</a>
+                <button class="rightButton" mat-button color="warm" type="button" (click)="goToMap(p.name, p.latitude, p.longtitude)" matTooltip="Show on Map"><mat-icon>pin_drop</mat-icon></button>
+            </h3>
+            <span matListItemLine><b>Address:</b> {{p.address}}</span>
+            <br>
+            <span matListItemLine><b>Rating:</b> {{p.rating}} out of 5  ({{p.totalUsersRated}} Google reviews)</span>
+            <br>
+            <span matListItemLine></span>
+            <!-- <span matListItemLine><button class="rightButton" mat-stroked-button color="warm" type="button" (click)="goToMap(p.name, p.latitude, p.longtitude)">
+            Show on Map <mat-icon>pin_drop</mat-icon></button></span> -->
+        </mat-list-option>
+      
+    </mat-selection-list>
+
+    <p class="center">
+        Options selected: {{list.selectedOptions.selected.length}}
+        <button class="rightButton" mat-raised-button color="primary" type="button" (click)="save()">
+            Save
+        </button>
+    </p>
+   
+    <!-- 
+    <div *ngFor="let p of places">
+
+        <table class="center">
+
+            <tr>
+                <td>
+                    <img src="{{p.photo}}" style="width:150px;height:100px;">
+                </td>
+                <td>
+                    <img src="{{p.icon}}" style="width:30px;height:30px;">
+                </td>
+            </tr>
+
+            <tr>
+                <td><strong>Name:</strong></td>
+                <td>
+                    <code>{{p.name}}</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td><strong>Address:</strong></td>
+                <td>
+                    <code>{{p.address}}</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td><strong>Overall Rating:</strong></td>
+                <td>
+                    <code>{{p.rating}}</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td><strong>Total Users Rated:</strong></td>
+                <td>
+                    <code>{{p.totalUsersRated}}</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>
+                    <button mat-mini-fab color color="primary" type="button">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                </td>
+            </tr>
+
+
+
+        </table>
+
+
+    </div> -->
+
+</div>
+
+
+<ng-template #noData class="center">
+    <h2>Your search produces no result</h2>
+</ng-template>

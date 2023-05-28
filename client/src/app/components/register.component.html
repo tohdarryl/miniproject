@@ -1,0 +1,30 @@
+  <br>
+  <div class="parent">
+    <h2>Create new account</h2>
+    <form [formGroup]="form" (ngSubmit)="register()">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Enter your email" formControlName="email">
+            </mat-form-field>
+        <br>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput placeholder="Minimum of 8 Chars" value="" formControlName="password" type="password">
+                </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>First name</mat-label>
+            <input matInput placeholder="Enter your first name" formControlName="firstName">
+            </mat-form-field>
+        <br>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Last name</mat-label>
+                <input matInput placeholder="Enter your last name" formControlName="lastName">
+                </mat-form-field>
+        <br>
+        <section class="mat-raised-button">
+        <button mat-raised-button color="warm" type="submit" [disabled]="form.invalid">
+          <mat-icon>app_registration</mat-icon> Register</button>
+        </section>
+    </form>
+    </div>

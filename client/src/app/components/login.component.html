@@ -1,0 +1,26 @@
+<br>
+<div class="parent">
+  <h2>Sign in</h2>
+  <form [formGroup]="form" name="form" (ngSubmit)="login()">
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Enter your email" formControlName="email">
+      <!-- <div *ngIf="form.get('email')?.hasError('required')"></div> -->
+    </mat-form-field>
+    <br>
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" value="" formControlName="password" type="password" required>
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      <!-- <mat-hint *ngIf="!passwordInput">Enter your password</mat-hint> -->
+    </mat-form-field>
+    <br>
+    <!-- <a mat-raised-button href="https://stackoverflow.com/">Stackoverflow</a> -->
+    <button mat-button class="full-width" type="button" (click)="forgotPassword()">Forgot Password</button>
+    &nbsp;
+
+    <button mat-raised-button color="primary" class="full-width" type="submit" [disabled]="form.invalid"><mat-icon>login</mat-icon>Sign in</button>
+
+    <!-- <button mat-raised-button color="warm" class="full-width" type="button" (click)="register()">Register</button> -->
+  </form>
+</div>
